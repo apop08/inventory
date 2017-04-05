@@ -1,0 +1,872 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="inventoryModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cityids">
+          <Key>
+            <PropertyRef Name="cityid" />
+          </Key>
+          <Property Name="cityid" Type="int" Nullable="false" />
+          <Property Name="cityname" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employees">
+          <Key>
+            <PropertyRef Name="employeenumber" />
+          </Key>
+          <Property Name="employeenumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="workerid" Type="int" Nullable="false" />
+          <Property Name="storeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="inventoryid" />
+          </Key>
+          <Property Name="inventoryid" Type="int" Nullable="false" />
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="cost" Type="int" Nullable="false" />
+          <Property Name="sale_price" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="items">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="itemname" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="purchaseid" />
+          </Key>
+          <Property Name="purchaseid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="storeid" Type="int" Nullable="false" />
+          <Property Name="purchase_qty" Type="int" Nullable="false" />
+          <Property Name="totalpurchase" Type="int" Nullable="false" />
+          <Property Name="workerid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="saleid" />
+          </Key>
+          <Property Name="saleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="storeid" Type="int" Nullable="false" />
+          <Property Name="sale_qty" Type="int" Nullable="false" />
+          <Property Name="totalsale" Type="int" Nullable="false" />
+          <Property Name="workerid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="storeids">
+          <Key>
+            <PropertyRef Name="storeid" />
+          </Key>
+          <Property Name="storeid" Type="int" Nullable="false" />
+          <Property Name="StoreName" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="storetype" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stores">
+          <Key>
+            <PropertyRef Name="storenumber" />
+          </Key>
+          <Property Name="storenumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="storeID" Type="int" Nullable="false" />
+          <Property Name="inventoryid" Type="int" Nullable="false" />
+          <Property Name="cityid" Type="int" Nullable="false" />
+          <Property Name="storephone" Type="int" Nullable="false" />
+          <Property Name="StoreType" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="storetypes">
+          <Key>
+            <PropertyRef Name="storetype" />
+          </Key>
+          <Property Name="storetype" Type="int" Nullable="false" />
+          <Property Name="storetypename" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="workers">
+          <Key>
+            <PropertyRef Name="workerid" />
+          </Key>
+          <Property Name="workerid" Type="int" Nullable="false" />
+          <Property Name="worker_lastname" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="workerphone" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="employees_ibfk_1">
+          <End Role="storeids" Type="Self.storeids" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_ibfk_2">
+          <End Role="workers" Type="Self.workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employees" Type="Self.employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="inventory_ibfk_1">
+          <End Role="items" Type="Self.items" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="inventory">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_1">
+          <End Role="items" Type="Self.items" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_2">
+          <End Role="storeids" Type="Self.storeids" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_3">
+          <End Role="workers" Type="Self.workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_1">
+          <End Role="items" Type="Self.items" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_2">
+          <End Role="storeids" Type="Self.storeids" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_3">
+          <End Role="workers" Type="Self.workers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="storeids_ibfk_1">
+          <End Role="storetypes" Type="Self.storetypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="storeids" Type="Self.storeids" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storetypes">
+              <PropertyRef Name="storetype" />
+            </Principal>
+            <Dependent Role="storeids">
+              <PropertyRef Name="storetype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_1">
+          <End Role="storeids" Type="Self.storeids" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.stores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="storeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_2">
+          <End Role="cityids" Type="Self.cityids" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.stores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cityids">
+              <PropertyRef Name="cityid" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_3">
+          <End Role="storetypes" Type="Self.storetypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.stores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storetypes">
+              <PropertyRef Name="storetype" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="StoreType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_4">
+          <End Role="inventory" Type="Self.inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.stores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory">
+              <PropertyRef Name="inventoryid" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="inventoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventoryModelStoreContainer">
+          <EntitySet Name="cityids" EntityType="Self.cityids" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="employees" EntityType="Self.employees" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="inventory" EntityType="Self.inventory" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="items" EntityType="Self.items" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="purchase" EntityType="Self.purchase" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="sale" EntityType="Self.sale" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="storeids" EntityType="Self.storeids" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="stores" EntityType="Self.stores" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="storetypes" EntityType="Self.storetypes" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="workers" EntityType="Self.workers" Schema="inventory" store:Type="Tables" />
+          <AssociationSet Name="employees_ibfk_1" Association="Self.employees_ibfk_1">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="employees_ibfk_2" Association="Self.employees_ibfk_2">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="inventory_ibfk_1" Association="Self.inventory_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="inventory" EntitySet="inventory" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_1" Association="Self.purchase_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_2" Association="Self.purchase_ibfk_2">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_3" Association="Self.purchase_ibfk_3">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="purchase" EntitySet="purchase" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_1" Association="Self.sale_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="sale" EntitySet="sale" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_2" Association="Self.sale_ibfk_2">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="sale" EntitySet="sale" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_3" Association="Self.sale_ibfk_3">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="sale" EntitySet="sale" />
+          </AssociationSet>
+          <AssociationSet Name="storeids_ibfk_1" Association="Self.storeids_ibfk_1">
+            <End Role="storetypes" EntitySet="storetypes" />
+            <End Role="storeids" EntitySet="storeids" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_1" Association="Self.stores_ibfk_1">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_2" Association="Self.stores_ibfk_2">
+            <End Role="cityids" EntitySet="cityids" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_3" Association="Self.stores_ibfk_3">
+            <End Role="storetypes" EntitySet="storetypes" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_4" Association="Self.stores_ibfk_4">
+            <End Role="inventory" EntitySet="inventory" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="inventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cityid">
+          <Key>
+            <PropertyRef Name="cityid1" />
+          </Key>
+          <Property Name="cityid1" Type="Int32" Nullable="false" />
+          <Property Name="cityname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="stores" Relationship="Self.stores_ibfk_2" FromRole="cityids" ToRole="stores" />
+        </EntityType>
+        <EntityType Name="employee">
+          <Key>
+            <PropertyRef Name="employeenumber" />
+          </Key>
+          <Property Name="employeenumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="workerid" Type="Int32" Nullable="false" />
+          <Property Name="storeid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="storeid1" Relationship="Self.employees_ibfk_1" FromRole="employees" ToRole="storeids" />
+          <NavigationProperty Name="worker" Relationship="Self.employees_ibfk_2" FromRole="employees" ToRole="workers" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="inventoryid" />
+          </Key>
+          <Property Name="inventoryid" Type="Int32" Nullable="false" />
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="cost" Type="Int32" Nullable="false" />
+          <Property Name="sale_price" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.inventory_ibfk_1" FromRole="inventory" ToRole="items" />
+          <NavigationProperty Name="stores" Relationship="Self.stores_ibfk_4" FromRole="inventory" ToRole="stores" />
+        </EntityType>
+        <EntityType Name="item">
+          <Key>
+            <PropertyRef Name="itemid" />
+          </Key>
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="itemname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="inventories" Relationship="Self.inventory_ibfk_1" FromRole="items" ToRole="inventory" />
+          <NavigationProperty Name="purchases" Relationship="Self.purchase_ibfk_1" FromRole="items" ToRole="purchase" />
+          <NavigationProperty Name="sales" Relationship="Self.sale_ibfk_1" FromRole="items" ToRole="sale" />
+        </EntityType>
+        <EntityType Name="purchase">
+          <Key>
+            <PropertyRef Name="purchaseid" />
+          </Key>
+          <Property Name="purchaseid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="storeid" Type="Int32" Nullable="false" />
+          <Property Name="purchase_qty" Type="Int32" Nullable="false" />
+          <Property Name="totalpurchase" Type="Int32" Nullable="false" />
+          <Property Name="workerid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.purchase_ibfk_1" FromRole="purchase" ToRole="items" />
+          <NavigationProperty Name="storeid1" Relationship="Self.purchase_ibfk_2" FromRole="purchase" ToRole="storeids" />
+          <NavigationProperty Name="worker" Relationship="Self.purchase_ibfk_3" FromRole="purchase" ToRole="workers" />
+        </EntityType>
+        <EntityType Name="sale">
+          <Key>
+            <PropertyRef Name="saleid" />
+          </Key>
+          <Property Name="saleid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="storeid" Type="Int32" Nullable="false" />
+          <Property Name="sale_qty" Type="Int32" Nullable="false" />
+          <Property Name="totalsale" Type="Int32" Nullable="false" />
+          <Property Name="workerid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="item" Relationship="Self.sale_ibfk_1" FromRole="sale" ToRole="items" />
+          <NavigationProperty Name="storeid1" Relationship="Self.sale_ibfk_2" FromRole="sale" ToRole="storeids" />
+          <NavigationProperty Name="worker" Relationship="Self.sale_ibfk_3" FromRole="sale" ToRole="workers" />
+        </EntityType>
+        <EntityType Name="storeid">
+          <Key>
+            <PropertyRef Name="storeid1" />
+          </Key>
+          <Property Name="storeid1" Type="Int32" Nullable="false" />
+          <Property Name="StoreName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="storetype" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employees" Relationship="Self.employees_ibfk_1" FromRole="storeids" ToRole="employees" />
+          <NavigationProperty Name="purchases" Relationship="Self.purchase_ibfk_2" FromRole="storeids" ToRole="purchase" />
+          <NavigationProperty Name="sales" Relationship="Self.sale_ibfk_2" FromRole="storeids" ToRole="sale" />
+          <NavigationProperty Name="storetype1" Relationship="Self.storeids_ibfk_1" FromRole="storeids" ToRole="storetypes" />
+          <NavigationProperty Name="stores" Relationship="Self.stores_ibfk_1" FromRole="storeids" ToRole="stores" />
+        </EntityType>
+        <EntityType Name="store">
+          <Key>
+            <PropertyRef Name="storenumber" />
+          </Key>
+          <Property Name="storenumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="storeID" Type="Int32" Nullable="false" />
+          <Property Name="inventoryid" Type="Int32" Nullable="false" />
+          <Property Name="cityid" Type="Int32" Nullable="false" />
+          <Property Name="storephone" Type="Int32" Nullable="false" />
+          <Property Name="StoreType" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cityid1" Relationship="Self.stores_ibfk_2" FromRole="stores" ToRole="cityids" />
+          <NavigationProperty Name="inventory" Relationship="Self.stores_ibfk_4" FromRole="stores" ToRole="inventory" />
+          <NavigationProperty Name="storeid1" Relationship="Self.stores_ibfk_1" FromRole="stores" ToRole="storeids" />
+          <NavigationProperty Name="storetype1" Relationship="Self.stores_ibfk_3" FromRole="stores" ToRole="storetypes" />
+        </EntityType>
+        <EntityType Name="storetype">
+          <Key>
+            <PropertyRef Name="storetype1" />
+          </Key>
+          <Property Name="storetype1" Type="Int32" Nullable="false" />
+          <Property Name="storetypename" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="storeids" Relationship="Self.storeids_ibfk_1" FromRole="storetypes" ToRole="storeids" />
+          <NavigationProperty Name="stores" Relationship="Self.stores_ibfk_3" FromRole="storetypes" ToRole="stores" />
+        </EntityType>
+        <EntityType Name="worker">
+          <Key>
+            <PropertyRef Name="workerid" />
+          </Key>
+          <Property Name="workerid" Type="Int32" Nullable="false" />
+          <Property Name="worker_lastname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="workerphone" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="employees" Relationship="Self.employees_ibfk_2" FromRole="workers" ToRole="employees" />
+          <NavigationProperty Name="purchases" Relationship="Self.purchase_ibfk_3" FromRole="workers" ToRole="purchase" />
+          <NavigationProperty Name="sales" Relationship="Self.sale_ibfk_3" FromRole="workers" ToRole="sale" />
+        </EntityType>
+        <Association Name="stores_ibfk_2">
+          <End Role="cityids" Type="Self.cityid" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cityids">
+              <PropertyRef Name="cityid1" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="cityid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_ibfk_1">
+          <End Role="storeids" Type="Self.storeid" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid1" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="employees_ibfk_2">
+          <End Role="workers" Type="Self.worker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="employees" Type="Self.employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="employees">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="inventory_ibfk_1">
+          <End Role="items" Type="Self.item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="inventory" Type="Self.inventory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="inventory">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_4">
+          <End Role="inventory" Type="Self.inventory" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="inventory">
+              <PropertyRef Name="inventoryid" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="inventoryid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_1">
+          <End Role="items" Type="Self.item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_1">
+          <End Role="items" Type="Self.item" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="items">
+              <PropertyRef Name="itemid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="itemid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_2">
+          <End Role="storeids" Type="Self.storeid" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid1" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="purchase_ibfk_3">
+          <End Role="workers" Type="Self.worker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="purchase" Type="Self.purchase" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="purchase">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_2">
+          <End Role="storeids" Type="Self.storeid" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid1" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="storeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="sale_ibfk_3">
+          <End Role="workers" Type="Self.worker" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="sale" Type="Self.sale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="workers">
+              <PropertyRef Name="workerid" />
+            </Principal>
+            <Dependent Role="sale">
+              <PropertyRef Name="workerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="storeids_ibfk_1">
+          <End Role="storetypes" Type="Self.storetype" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="storeids" Type="Self.storeid" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storetypes">
+              <PropertyRef Name="storetype1" />
+            </Principal>
+            <Dependent Role="storeids">
+              <PropertyRef Name="storetype" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_1">
+          <End Role="storeids" Type="Self.storeid" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storeids">
+              <PropertyRef Name="storeid1" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="storeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="stores_ibfk_3">
+          <End Role="storetypes" Type="Self.storetype" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="stores" Type="Self.store" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="storetypes">
+              <PropertyRef Name="storetype1" />
+            </Principal>
+            <Dependent Role="stores">
+              <PropertyRef Name="StoreType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="inventoryEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cityids" EntityType="Self.cityid" />
+          <EntitySet Name="employees" EntityType="Self.employee" />
+          <EntitySet Name="inventories" EntityType="Self.inventory" />
+          <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="purchases" EntityType="Self.purchase" />
+          <EntitySet Name="sales" EntityType="Self.sale" />
+          <EntitySet Name="storeids" EntityType="Self.storeid" />
+          <EntitySet Name="stores" EntityType="Self.store" />
+          <EntitySet Name="storetypes" EntityType="Self.storetype" />
+          <EntitySet Name="workers" EntityType="Self.worker" />
+          <AssociationSet Name="stores_ibfk_2" Association="Self.stores_ibfk_2">
+            <End Role="cityids" EntitySet="cityids" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="employees_ibfk_1" Association="Self.employees_ibfk_1">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="employees_ibfk_2" Association="Self.employees_ibfk_2">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="employees" EntitySet="employees" />
+          </AssociationSet>
+          <AssociationSet Name="inventory_ibfk_1" Association="Self.inventory_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="inventory" EntitySet="inventories" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_4" Association="Self.stores_ibfk_4">
+            <End Role="inventory" EntitySet="inventories" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_1" Association="Self.purchase_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_1" Association="Self.sale_ibfk_1">
+            <End Role="items" EntitySet="items" />
+            <End Role="sale" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_2" Association="Self.purchase_ibfk_2">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="purchase_ibfk_3" Association="Self.purchase_ibfk_3">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="purchase" EntitySet="purchases" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_2" Association="Self.sale_ibfk_2">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="sale" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="sale_ibfk_3" Association="Self.sale_ibfk_3">
+            <End Role="workers" EntitySet="workers" />
+            <End Role="sale" EntitySet="sales" />
+          </AssociationSet>
+          <AssociationSet Name="storeids_ibfk_1" Association="Self.storeids_ibfk_1">
+            <End Role="storetypes" EntitySet="storetypes" />
+            <End Role="storeids" EntitySet="storeids" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_1" Association="Self.stores_ibfk_1">
+            <End Role="storeids" EntitySet="storeids" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+          <AssociationSet Name="stores_ibfk_3" Association="Self.stores_ibfk_3">
+            <End Role="storetypes" EntitySet="storetypes" />
+            <End Role="stores" EntitySet="stores" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="inventoryModelStoreContainer" CdmEntityContainer="inventoryEntities1">
+          <EntitySetMapping Name="cityids">
+            <EntityTypeMapping TypeName="inventoryModel.cityid">
+              <MappingFragment StoreEntitySet="cityids">
+                <ScalarProperty Name="cityid1" ColumnName="cityid" />
+                <ScalarProperty Name="cityname" ColumnName="cityname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employees">
+            <EntityTypeMapping TypeName="inventoryModel.employee">
+              <MappingFragment StoreEntitySet="employees">
+                <ScalarProperty Name="employeenumber" ColumnName="employeenumber" />
+                <ScalarProperty Name="workerid" ColumnName="workerid" />
+                <ScalarProperty Name="storeid" ColumnName="storeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inventories">
+            <EntityTypeMapping TypeName="inventoryModel.inventory">
+              <MappingFragment StoreEntitySet="inventory">
+                <ScalarProperty Name="inventoryid" ColumnName="inventoryid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="sale_price" ColumnName="sale_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="items">
+            <EntityTypeMapping TypeName="inventoryModel.item">
+              <MappingFragment StoreEntitySet="items">
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="itemname" ColumnName="itemname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="purchases">
+            <EntityTypeMapping TypeName="inventoryModel.purchase">
+              <MappingFragment StoreEntitySet="purchase">
+                <ScalarProperty Name="purchaseid" ColumnName="purchaseid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="storeid" ColumnName="storeid" />
+                <ScalarProperty Name="purchase_qty" ColumnName="purchase_qty" />
+                <ScalarProperty Name="totalpurchase" ColumnName="totalpurchase" />
+                <ScalarProperty Name="workerid" ColumnName="workerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sales">
+            <EntityTypeMapping TypeName="inventoryModel.sale">
+              <MappingFragment StoreEntitySet="sale">
+                <ScalarProperty Name="saleid" ColumnName="saleid" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="storeid" ColumnName="storeid" />
+                <ScalarProperty Name="sale_qty" ColumnName="sale_qty" />
+                <ScalarProperty Name="totalsale" ColumnName="totalsale" />
+                <ScalarProperty Name="workerid" ColumnName="workerid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storeids">
+            <EntityTypeMapping TypeName="inventoryModel.storeid">
+              <MappingFragment StoreEntitySet="storeids">
+                <ScalarProperty Name="storeid1" ColumnName="storeid" />
+                <ScalarProperty Name="StoreName" ColumnName="StoreName" />
+                <ScalarProperty Name="storetype" ColumnName="storetype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stores">
+            <EntityTypeMapping TypeName="inventoryModel.store">
+              <MappingFragment StoreEntitySet="stores">
+                <ScalarProperty Name="storenumber" ColumnName="storenumber" />
+                <ScalarProperty Name="storeID" ColumnName="storeID" />
+                <ScalarProperty Name="inventoryid" ColumnName="inventoryid" />
+                <ScalarProperty Name="cityid" ColumnName="cityid" />
+                <ScalarProperty Name="storephone" ColumnName="storephone" />
+                <ScalarProperty Name="StoreType" ColumnName="StoreType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="storetypes">
+            <EntityTypeMapping TypeName="inventoryModel.storetype">
+              <MappingFragment StoreEntitySet="storetypes">
+                <ScalarProperty Name="storetype1" ColumnName="storetype" />
+                <ScalarProperty Name="storetypename" ColumnName="storetypename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="workers">
+            <EntityTypeMapping TypeName="inventoryModel.worker">
+              <MappingFragment StoreEntitySet="workers">
+                <ScalarProperty Name="workerid" ColumnName="workerid" />
+                <ScalarProperty Name="worker_lastname" ColumnName="worker_lastname" />
+                <ScalarProperty Name="workerphone" ColumnName="workerphone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
