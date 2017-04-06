@@ -13,10 +13,10 @@ namespace inventorymanager
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class inventoryEntities1 : DbContext
+    public partial class inventoryEntities : DbContext
     {
-        public inventoryEntities1()
-            : base("name=inventoryEntities1")
+        public inventoryEntities()
+            : base("name=inventoryEntities")
         {
         }
     
@@ -25,15 +25,15 @@ namespace inventorymanager
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<cityid> cityids { get; set; }
+        public virtual DbSet<citylist> citylists { get; set; }
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<inventory> inventories { get; set; }
         public virtual DbSet<item> items { get; set; }
         public virtual DbSet<purchase> purchases { get; set; }
         public virtual DbSet<sale> sales { get; set; }
-        public virtual DbSet<storeid> storeids { get; set; }
+        public virtual DbSet<storelist> storelists { get; set; }
         public virtual DbSet<store> stores { get; set; }
-        public virtual DbSet<storetype> storetypes { get; set; }
+        public virtual DbSet<storetypelist> storetypelists { get; set; }
         public virtual DbSet<worker> workers { get; set; }
     }
 }

@@ -47,9 +47,15 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,63 +64,69 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cityid.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+    <Compile Include="citylist.cs">
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
-    <Compile Include="databasemodel.Context.cs">
+    <Compile Include="Citylistmanage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Citylistmanage.Designer.cs">
+      <DependentUpon>Citylistmanage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Datamodel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>databasemodel.Context.tt</DependentUpon>
+      <DependentUpon>Datamodel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="databasemodel.cs">
+    <Compile Include="Datamodel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
-    <Compile Include="databasemodel.Designer.cs">
+    <Compile Include="Datamodel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>databasemodel.edmx</DependentUpon>
+      <DependentUpon>Datamodel.edmx</DependentUpon>
     </Compile>
     <Compile Include="employee.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="inventory.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="item.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="purchase.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="sale.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="store.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
-    <Compile Include="storeid.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+    <Compile Include="storelist.cs">
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
-    <Compile Include="storetype.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+    <Compile Include="storetypelist.cs">
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
     <Compile Include="worker.cs">
-      <DependentUpon>databasemodel.tt</DependentUpon>
+      <DependentUpon>Datamodel.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="databasemodel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>databasemodel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
-    <None Include="databasemodel.edmx.diagram">
-      <DependentUpon>databasemodel.edmx</DependentUpon>
+    <EntityDeploy Include="Datamodel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Datamodel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Datamodel.edmx.diagram">
+      <DependentUpon>Datamodel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -122,15 +134,20 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="databasemodel.Context.tt">
+    <EmbeddedResource Include="Citylistmanage.resx">
+      <DependentUpon>Citylistmanage.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Datamodel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>databasemodel.edmx</DependentUpon>
-      <LastGenOutput>databasemodel.Context.cs</LastGenOutput>
+      <DependentUpon>Datamodel.edmx</DependentUpon>
+      <LastGenOutput>Datamodel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="databasemodel.tt">
+    <Content Include="Datamodel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>databasemodel.edmx</DependentUpon>
-      <LastGenOutput>databasemodel.cs</LastGenOutput>
+      <DependentUpon>Datamodel.edmx</DependentUpon>
+      <LastGenOutput>Datamodel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

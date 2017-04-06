@@ -12,15 +12,15 @@ namespace inventorymanager
     using System;
     using System.Collections.Generic;
     
-    public partial class cityid
+    public partial class citylist
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cityid()
+        public citylist()
         {
             this.stores = new HashSet<store>();
         }
     
-        public int cityid1 { get; set; }
+        public int cityid { get; set; }
         public string cityname { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

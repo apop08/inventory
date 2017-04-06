@@ -14,12 +14,7 @@ namespace inventorymanager
     
     public partial class inventory
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public inventory()
-        {
-            this.stores = new HashSet<store>();
-        }
-    
+        public int item_number { get; set; }
         public int inventoryid { get; set; }
         public int itemid { get; set; }
         public int quantity { get; set; }
@@ -27,7 +22,6 @@ namespace inventorymanager
         public int sale_price { get; set; }
     
         public virtual item item { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<store> stores { get; set; }
+        public virtual store store { get; set; }
     }
 }

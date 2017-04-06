@@ -14,6 +14,12 @@ namespace inventorymanager
     
     public partial class store
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public store()
+        {
+            this.inventories = new HashSet<inventory>();
+        }
+    
         public int storenumber { get; set; }
         public int storeID { get; set; }
         public int inventoryid { get; set; }
@@ -21,9 +27,10 @@ namespace inventorymanager
         public int storephone { get; set; }
         public int StoreType { get; set; }
     
-        public virtual cityid cityid1 { get; set; }
-        public virtual inventory inventory { get; set; }
-        public virtual storeid storeid1 { get; set; }
-        public virtual storetype storetype1 { get; set; }
+        public virtual citylist citylist { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<inventory> inventories { get; set; }
+        public virtual storelist storelist { get; set; }
+        public virtual storetypelist storetypelist { get; set; }
     }
 }

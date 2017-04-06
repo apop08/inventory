@@ -12,10 +12,10 @@ namespace inventorymanager
     using System;
     using System.Collections.Generic;
     
-    public partial class storeid
+    public partial class storelist
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public storeid()
+        public storelist()
         {
             this.employees = new HashSet<employee>();
             this.purchases = new HashSet<purchase>();
@@ -23,9 +23,8 @@ namespace inventorymanager
             this.stores = new HashSet<store>();
         }
     
-        public int storeid1 { get; set; }
+        public int storeid { get; set; }
         public string StoreName { get; set; }
-        public int storetype { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<employee> employees { get; set; }
@@ -33,7 +32,6 @@ namespace inventorymanager
         public virtual ICollection<purchase> purchases { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<sale> sales { get; set; }
-        public virtual storetype storetype1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<store> stores { get; set; }
     }

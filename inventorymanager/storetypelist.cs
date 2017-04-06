@@ -12,20 +12,17 @@ namespace inventorymanager
     using System;
     using System.Collections.Generic;
     
-    public partial class storetype
+    public partial class storetypelist
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public storetype()
+        public storetypelist()
         {
-            this.storeids = new HashSet<storeid>();
             this.stores = new HashSet<store>();
         }
     
-        public int storetype1 { get; set; }
+        public int storetype { get; set; }
         public string storetypename { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<storeid> storeids { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<store> stores { get; set; }
     }

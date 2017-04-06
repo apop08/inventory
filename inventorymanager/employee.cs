@@ -18,7 +18,7 @@ namespace inventorymanager
         public int workerid { get; set; }
         public int storeid { get; set; }
     
-        public virtual storeid storeid1 { get; set; }
+        public virtual storelist storelist { get; set; }
         public virtual worker worker { get; set; }
     }
 }
