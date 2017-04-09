@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="52be8285cfb5458e81c9169ffbb964a3" Name="Diagram1">
-        <EntityTypeShape EntityType="inventoryModel.citylist" Width="1.5" PointX="0.875" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.employee" Width="1.5" PointX="8.375" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.inventory" Width="1.5" PointX="1.875" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.item" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.purchase" Width="1.5" PointX="7.25" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.sale" Width="1.5" PointX="4.125" PointY="0.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.storelist" Width="1.5" PointX="10.375" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.store" Width="1.5" PointX="4.125" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.storetypelist" Width="1.5" PointX="1" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="inventoryModel.worker" Width="1.5" PointX="6.375" PointY="7.625" IsExpanded="true" />
+      <Diagram DiagramId="7bebcd7c8229432c9932862d9a21ec56" Name="Diagram1">
+        <EntityTypeShape EntityType="inventoryModel.citylist" Width="1.5" PointX="0.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.employee" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.inventory" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.item" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.purchase" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.sale" Width="1.5" PointX="3" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.storelist" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.store" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.storetypelist" Width="1.5" PointX="0.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="inventoryModel.worker" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
         <AssociationConnector Association="inventoryModel.stores_ibfk_2" ManuallyRouted="false" />
         <AssociationConnector Association="inventoryModel.employees_ibfk_1" ManuallyRouted="false" />
         <AssociationConnector Association="inventoryModel.employees_ibfk_2" ManuallyRouted="false" />

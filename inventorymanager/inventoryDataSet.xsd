@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="inventoryDataSet" targetNamespace="http://tempuri.org/inventoryDataSet.xsd" xmlns:mstns="http://tempuri.org/inventoryDataSet.xsd" xmlns="http://tempuri.org/inventoryDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="inventoryConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="inventoryConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.inventorymanager.Properties.Settings.GlobalReference.Default.inventoryConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="citylistTableAdapter" GeneratorDataComponentClassName="citylistTableAdapter" Name="citylist" UserDataComponentName="citylistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.citylist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `cityid`, `cityname` FROM `citylist`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="employeesTableAdapter" GeneratorDataComponentClassName="employeesTableAdapter" Name="employees" UserDataComponentName="employeesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.employees" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `employeenumber`, `workerid`, `storeid` FROM `employees`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="inventoryTableAdapter" GeneratorDataComponentClassName="inventoryTableAdapter" Name="inventory" UserDataComponentName="inventoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.inventory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `item_number`, `inventoryid`, `itemid`, `quantity`, `cost`, `sale_price` FROM `inventory`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="itemsTableAdapter" GeneratorDataComponentClassName="itemsTableAdapter" Name="items" UserDataComponentName="itemsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.items" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `itemid`, `itemname` FROM `items`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="purchaseTableAdapter" GeneratorDataComponentClassName="purchaseTableAdapter" Name="purchase" UserDataComponentName="purchaseTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.purchase" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `purchaseid`, `itemid`, `storeid`, `purchase_qty`, `totalpurchase`, `workerid` FROM `purchase`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="saleTableAdapter" GeneratorDataComponentClassName="saleTableAdapter" Name="sale" UserDataComponentName="saleTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.sale" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `saleid`, `itemid`, `storeid`, `sale_qty`, `totalsale`, `workerid` FROM `sale`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="storelistTableAdapter" GeneratorDataComponentClassName="storelistTableAdapter" Name="storelist" UserDataComponentName="storelistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.storelist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `storeid`, `StoreName` FROM `storelist`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="storesTableAdapter" GeneratorDataComponentClassName="storesTableAdapter" Name="stores" UserDataComponentName="storesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.stores" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `storenumber`, `storeID`, `inventoryid`, `cityid`, `storephone`, `StoreType` FROM `stores`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="storetypelistTableAdapter" GeneratorDataComponentClassName="storetypelistTableAdapter" Name="storetypelist" UserDataComponentName="storetypelistTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.storetypelist" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `storetype`, `storetypename` FROM `storetypelist`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="workersTableAdapter" GeneratorDataComponentClassName="workersTableAdapter" Name="workers" UserDataComponentName="workersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="inventoryConnectionString (Settings)" DbObjectName="inventory.workers" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT `workerid`, `worker_lastname`, `workerphone` FROM `workers`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="inventoryDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="inventoryDataSet" msprop:Generator_UserDSName="inventoryDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="citylist" msprop:Generator_TableClassName="citylistDataTable" msprop:Generator_TableVarName="tablecitylist" msprop:Generator_TablePropName="citylist" msprop:Generator_RowDeletingName="citylistRowDeleting" msprop:Generator_RowChangingName="citylistRowChanging" msprop:Generator_RowEvHandlerName="citylistRowChangeEventHandler" msprop:Generator_RowDeletedName="citylistRowDeleted" msprop:Generator_UserTableName="citylist" msprop:Generator_RowChangedName="citylistRowChanged" msprop:Generator_RowEvArgName="citylistRowChangeEvent" msprop:Generator_RowClassName="citylistRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="employees" msprop:Generator_TableClassName="employeesDataTable" msprop:Generator_TableVarName="tableemployees" msprop:Generator_TablePropName="employees" msprop:Generator_RowDeletingName="employeesRowDeleting" msprop:Generator_RowChangingName="employeesRowChanging" msprop:Generator_RowEvHandlerName="employeesRowChangeEventHandler" msprop:Generator_RowDeletedName="employeesRowDeleted" msprop:Generator_UserTableName="employees" msprop:Generator_RowChangedName="employeesRowChanged" msprop:Generator_RowEvArgName="employeesRowChangeEvent" msprop:Generator_RowClassName="employeesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="inventory" msprop:Generator_TableClassName="inventoryDataTable" msprop:Generator_TableVarName="tableinventory" msprop:Generator_TablePropName="inventory" msprop:Generator_RowDeletingName="inventoryRowDeleting" msprop:Generator_RowChangingName="inventoryRowChanging" msprop:Generator_RowEvHandlerName="inventoryRowChangeEventHandler" msprop:Generator_RowDeletedName="inventoryRowDeleted" msprop:Generator_UserTableName="inventory" msprop:Generator_RowChangedName="inventoryRowChanged" msprop:Generator_RowEvArgName="inventoryRowChangeEvent" msprop:Generator_RowClassName="inventoryRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="items" msprop:Generator_TableClassName="itemsDataTable" msprop:Generator_TableVarName="tableitems" msprop:Generator_TablePropName="items" msprop:Generator_RowDeletingName="itemsRowDeleting" msprop:Generator_RowChangingName="itemsRowChanging" msprop:Generator_RowEvHandlerName="itemsRowChangeEventHandler" msprop:Generator_RowDeletedName="itemsRowDeleted" msprop:Generator_UserTableName="items" msprop:Generator_RowChangedName="itemsRowChanged" msprop:Generator_RowEvArgName="itemsRowChangeEvent" msprop:Generator_RowClassName="itemsRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="purchase" msprop:Generator_TableClassName="purchaseDataTable" msprop:Generator_TableVarName="tablepurchase" msprop:Generator_TablePropName="purchase" msprop:Generator_RowDeletingName="purchaseRowDeleting" msprop:Generator_RowChangingName="purchaseRowChanging" msprop:Generator_RowEvHandlerName="purchaseRowChangeEventHandler" msprop:Generator_RowDeletedName="purchaseRowDeleted" msprop:Generator_UserTableName="purchase" msprop:Generator_RowChangedName="purchaseRowChanged" msprop:Generator_RowEvArgName="purchaseRowChangeEvent" msprop:Generator_RowClassName="purchaseRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sale" msprop:Generator_TableClassName="saleDataTable" msprop:Generator_TableVarName="tablesale" msprop:Generator_TablePropName="sale" msprop:Generator_RowDeletingName="saleRowDeleting" msprop:Generator_RowChangingName="saleRowChanging" msprop:Generator_RowEvHandlerName="saleRowChangeEventHandler" msprop:Generator_RowDeletedName="saleRowDeleted" msprop:Generator_UserTableName="sale" msprop:Generator_RowChangedName="saleRowChanged" msprop:Generator_RowEvArgName="saleRowChangeEvent" msprop:Generator_RowClassName="saleRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="storelist" msprop:Generator_TableClassName="storelistDataTable" msprop:Generator_TableVarName="tablestorelist" msprop:Generator_TablePropName="storelist" msprop:Generator_RowDeletingName="storelistRowDeleting" msprop:Generator_RowChangingName="storelistRowChanging" msprop:Generator_RowEvHandlerName="storelistRowChangeEventHandler" msprop:Generator_RowDeletedName="storelistRowDeleted" msprop:Generator_UserTableName="storelist" msprop:Generator_RowChangedName="storelistRowChanged" msprop:Generator_RowEvArgName="storelistRowChangeEvent" msprop:Generator_RowClassName="storelistRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="stores" msprop:Generator_TableClassName="storesDataTable" msprop:Generator_TableVarName="tablestores" msprop:Generator_TablePropName="stores" msprop:Generator_RowDeletingName="storesRowDeleting" msprop:Generator_RowChangingName="storesRowChanging" msprop:Generator_RowEvHandlerName="storesRowChangeEventHandler" msprop:Generator_RowDeletedName="storesRowDeleted" msprop:Generator_UserTableName="stores" msprop:Generator_RowChangedName="storesRowChanged" msprop:Generator_RowEvArgName="storesRowChangeEvent" msprop:Generator_RowClassName="storesRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="storetypelist" msprop:Generator_TableClassName="storetypelistDataTable" msprop:Generator_TableVarName="tablestoretypelist" msprop:Generator_TablePropName="storetypelist" msprop:Generator_RowDeletingName="storetypelistRowDeleting" msprop:Generator_RowChangingName="storetypelistRowChanging" msprop:Generator_RowEvHandlerName="storetypelistRowChangeEventHandler" msprop:Generator_RowDeletedName="storetypelistRowDeleted" msprop:Generator_UserTableName="storetypelist" msprop:Generator_RowChangedName="storetypelistRowChanged" msprop:Generator_RowEvArgName="storetypelistRowChangeEvent" msprop:Generator_RowClassName="storetypelistRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="workers" msprop:Generator_TableClassName="workersDataTable" msprop:Generator_TableVarName="tableworkers" msprop:Generator_TablePropName="workers" msprop:Generator_RowDeletingName="workersRowDeleting" msprop:Generator_RowChangingName="workersRowChanging" msprop:Generator_RowEvHandlerName="workersRowChangeEventHandler" msprop:Generator_RowDeletedName="workersRowDeleted" msprop:Generator_UserTableName="workers" msprop:Generator_RowChangedName="workersRowChanged" msprop:Generator_RowEvArgName="workersRowChangeEvent" msprop:Generator_RowClassName="workersRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

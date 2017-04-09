@@ -16,7 +16,7 @@ namespace inventorymanager
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Citylistmanage());
+            Application.Run(new storelistmanage());
         }
     }
 }

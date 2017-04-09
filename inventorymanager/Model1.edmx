@@ -640,7 +640,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="inventoryEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="inventoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="citylists" EntityType="Self.citylist" />
           <EntitySet Name="employees" EntityType="Self.employee" />
           <EntitySet Name="inventories" EntityType="Self.inventory" />
@@ -709,7 +709,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="inventoryModelStoreContainer" CdmEntityContainer="inventoryEntities3">
+        <EntityContainerMapping StorageEntityContainer="inventoryModelStoreContainer" CdmEntityContainer="inventoryEntities">
           <EntitySetMapping Name="citylists">
             <EntityTypeMapping TypeName="inventoryModel.citylist">
               <MappingFragment StoreEntitySet="citylist">
