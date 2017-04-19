@@ -9,13 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.Entity;
 using MySql.Data.MySqlClient;
+
 namespace inventorymanager
 {
+
     public partial class storelistmanage : Form
     {
+        inventoryEntities test = new inventoryEntities();
         public storelistmanage()
         {
-            inventoryEntities test = new inventoryEntities();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.store_FormClosed);
+
             test.Database.CreateIfNotExists();
             test.SaveChanges();
             idmanager.InitInvId();
@@ -45,7 +49,6 @@ namespace inventorymanager
         private void LoadToGrid()
         {
             //need to change display formating
-            inventoryEntities test = new inventoryEntities();
             var load = from g in test.stores select g;
             if (load != null)
             {
@@ -111,7 +114,7 @@ namespace inventorymanager
 
         private void InsertStore_Click(object sender, EventArgs e)
         {
-            inventoryEntities test = new inventoryEntities();
+            
             try
             {
                 //always add store since not unique name
@@ -180,7 +183,7 @@ namespace inventorymanager
 
                 test.SaveChanges();
                 LoadToGrid();
-                MessageBox.Show("Record Inserted successfully.")
+                MessageBox.Show("Record Inserted successfully.");
                 
             }
             catch (Exception ex)
@@ -192,7 +195,6 @@ namespace inventorymanager
 
         private void UpdateStoreName_Click(object sender, EventArgs e)
         {
-            inventoryEntities test = new inventoryEntities();
             int numb = int.Parse(Storenumber.Text);
             var load = from g in test.stores where g.storenumber == numb select g.storeID;
             try
@@ -226,7 +228,6 @@ namespace inventorymanager
 
         private void UpdatePhone_Click(object sender, EventArgs e)
         {
-            inventoryEntities test = new inventoryEntities();
             int numb = int.Parse(Storenumber.Text);
             var load = from g in test.stores where g.storenumber == numb select g;
             try
@@ -255,7 +256,6 @@ namespace inventorymanager
         private void deleteStore_Click(object sender, EventArgs e)
         {
             
-            inventoryEntities test = new inventoryEntities();
             
             try
             {
@@ -313,6 +313,10 @@ namespace inventorymanager
         private void Storenumber_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void store_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

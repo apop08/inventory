@@ -16,7 +16,9 @@ namespace inventorymanager
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new storelistmanage());
+            (new Loginform()).Show();
+            
+            Application.Run();
         }
     }
 }

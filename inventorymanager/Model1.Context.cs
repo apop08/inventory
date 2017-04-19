@@ -29,6 +29,7 @@ namespace inventorymanager
         public virtual DbSet<employee> employees { get; set; }
         public virtual DbSet<inventory> inventories { get; set; }
         public virtual DbSet<item> items { get; set; }
+        public virtual DbSet<login> logins { get; set; }
         public virtual DbSet<purchase> purchases { get; set; }
         public virtual DbSet<sale> sales { get; set; }
         public virtual DbSet<storelist> storelists { get; set; }

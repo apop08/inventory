@@ -38,6 +38,13 @@
           <Property Name="itemid" Type="int" Nullable="false" />
           <Property Name="itemname" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="pass" Type="varchar" MaxLength="256" Nullable="false" />
+        </EntityType>
         <EntityType Name="purchase">
           <Key>
             <PropertyRef Name="purchaseid" />
@@ -248,9 +255,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="stores_ibfk_2">
-          <End Role="citylist" Type="Self.citylist" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="citylist" Type="Self.citylist" Multiplicity="1" />
           <End Role="stores" Type="Self.stores" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="citylist">
@@ -262,9 +267,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="stores_ibfk_3">
-          <End Role="storetypelist" Type="Self.storetypelist" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="storetypelist" Type="Self.storetypelist" Multiplicity="1" />
           <End Role="stores" Type="Self.stores" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="storetypelist">
@@ -280,6 +283,7 @@
           <EntitySet Name="employees" EntityType="Self.employees" Schema="inventory" store:Type="Tables" />
           <EntitySet Name="inventory" EntityType="Self.inventory" Schema="inventory" store:Type="Tables" />
           <EntitySet Name="items" EntityType="Self.items" Schema="inventory" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="inventory" store:Type="Tables" />
           <EntitySet Name="purchase" EntityType="Self.purchase" Schema="inventory" store:Type="Tables" />
           <EntitySet Name="sale" EntityType="Self.sale" Schema="inventory" store:Type="Tables" />
           <EntitySet Name="storelist" EntityType="Self.storelist" Schema="inventory" store:Type="Tables" />
@@ -385,6 +389,13 @@
           <NavigationProperty Name="purchases" Relationship="Self.purchase_ibfk_1" FromRole="items" ToRole="purchase" />
           <NavigationProperty Name="sales" Relationship="Self.sale_ibfk_1" FromRole="items" ToRole="sale" />
         </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="username" />
+          </Key>
+          <Property Name="username" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pass" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
         <EntityType Name="purchase">
           <Key>
             <PropertyRef Name="purchaseid" />
@@ -459,9 +470,7 @@
           <NavigationProperty Name="sales" Relationship="Self.sale_ibfk_3" FromRole="workers" ToRole="sale" />
         </EntityType>
         <Association Name="stores_ibfk_2">
-          <End Role="citylist" Type="Self.citylist" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="citylist" Type="Self.citylist" Multiplicity="1" />
           <End Role="stores" Type="Self.store" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="citylist">
@@ -627,9 +636,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="stores_ibfk_3">
-          <End Role="storetypelist" Type="Self.storetypelist" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+          <End Role="storetypelist" Type="Self.storetypelist" Multiplicity="1" />
           <End Role="stores" Type="Self.store" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="storetypelist">
@@ -645,6 +652,7 @@
           <EntitySet Name="employees" EntityType="Self.employee" />
           <EntitySet Name="inventories" EntityType="Self.inventory" />
           <EntitySet Name="items" EntityType="Self.item" />
+          <EntitySet Name="logins" EntityType="Self.login" />
           <EntitySet Name="purchases" EntityType="Self.purchase" />
           <EntitySet Name="sales" EntityType="Self.sale" />
           <EntitySet Name="storelists" EntityType="Self.storelist" />
@@ -744,6 +752,14 @@
               <MappingFragment StoreEntitySet="items">
                 <ScalarProperty Name="itemid" ColumnName="itemid" />
                 <ScalarProperty Name="itemname" ColumnName="itemname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="inventoryModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
