@@ -46,7 +46,7 @@ namespace inventorymanager
             this.textBox6.Visible = true;
             this.phone.Visible = true;
         }
-        private void LoadToGrid()
+        public void LoadToGrid()
         {
             //need to change display formating
             var load = from g in test.stores select g;
@@ -54,6 +54,53 @@ namespace inventorymanager
             {
                 datagridstore.DataSource = load.ToList();
             }
+            var load2 = from g in test.inventories select g;
+            if (load2 != null)
+            {
+                datasetinventory.DataSource = load2.ToList();
+            }
+            var load3 = from g in test.citylists select g;
+            if (load3 != null)
+            {
+                datasetcitylist.DataSource = load3.ToList();
+            }
+            var load4 = from g in test.storelists select g;
+            if (load4 != null)
+            {
+                dataGridstorelist.DataSource = load4.ToList();
+            }
+            var load5 = from g in test.items select g;
+            if (load5 != null)
+            {
+                dataGriditems.DataSource = load5.ToList();
+            }
+            var load6 = from g in test.storetypelists select g;
+            if (load6 != null)
+            {
+                datasettype.DataSource = load6.ToList();
+            }
+            var load7 = from g in test.sales select g;
+            if (load7 != null)
+            {
+                datagridsale.DataSource = load7.ToList();
+            }
+            var load8 = from g in test.purchases select g;
+            if (load8 != null)
+            {
+                datasetpurchase.DataSource = load8.ToList();
+            }
+            var load9 = from g in test.workers select g;
+            if (load9 != null)
+            {
+                datasetworker.DataSource = load9.ToList();
+            }
+            var load10 = from g in test.employees select g;
+            if (load10 != null)
+            {
+                datasetemployee.DataSource = load10.ToList();
+            }
+
+
         }
         private void updatecitylist_Click(object sender, EventArgs e)
         {
@@ -317,6 +364,30 @@ namespace inventorymanager
         private void store_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void Inventory_Click(object sender, EventArgs e)
+        {
+            inventoryform form = new inventoryform(this);
+            form.Show();
+        }
+
+        private void purchase_Click(object sender, EventArgs e)
+        {
+            purchaseform form = new purchaseform(this);
+            form.Show();
+        }
+
+        private void Sale_Click(object sender, EventArgs e)
+        {
+            saleform form = new saleform(this);
+            form.Show();
+        }
+
+        private void Workeradd_Click(object sender, EventArgs e)
+        {
+            workerform form = new workerform(this);
+            form.Show();
         }
     }
 }

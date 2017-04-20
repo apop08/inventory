@@ -44,15 +44,37 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.storeinsert = new System.Windows.Forms.Panel();
+            this.Storenumber = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.InsertStore = new System.Windows.Forms.Button();
             this.UpdateStoreName = new System.Windows.Forms.Button();
             this.UpdatePhone = new System.Windows.Forms.Button();
             this.deleteStore = new System.Windows.Forms.Button();
-            this.Storenumber = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.datasetinventory = new System.Windows.Forms.DataGridView();
+            this.dataGriditems = new System.Windows.Forms.DataGridView();
+            this.dataGridstorelist = new System.Windows.Forms.DataGridView();
+            this.datagridsale = new System.Windows.Forms.DataGridView();
+            this.datasetpurchase = new System.Windows.Forms.DataGridView();
+            this.datasetworker = new System.Windows.Forms.DataGridView();
+            this.datasettype = new System.Windows.Forms.DataGridView();
+            this.datasetcitylist = new System.Windows.Forms.DataGridView();
+            this.datasetemployee = new System.Windows.Forms.DataGridView();
+            this.Inventory = new System.Windows.Forms.Button();
+            this.purchase = new System.Windows.Forms.Button();
+            this.Sale = new System.Windows.Forms.Button();
+            this.Workeradd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridstore)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.storeinsert.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetinventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGriditems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridstorelist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridsale)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetpurchase)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetworker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasettype)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetcitylist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetemployee)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -222,6 +244,27 @@
             this.storeinsert.TabIndex = 15;
             this.storeinsert.Paint += new System.Windows.Forms.PaintEventHandler(this.storeinsert_Paint);
             // 
+            // Storenumber
+            // 
+            this.Storenumber.Location = new System.Drawing.Point(95, 0);
+            this.Storenumber.Name = "Storenumber";
+            this.Storenumber.Size = new System.Drawing.Size(435, 20);
+            this.Storenumber.TabIndex = 15;
+            this.Storenumber.Visible = false;
+            this.Storenumber.TextChanged += new System.EventHandler(this.Storenumber_TextChanged);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox3.Location = new System.Drawing.Point(6, 7);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(83, 13);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.Text = "Store Number";
+            this.textBox3.Visible = false;
+            // 
             // InsertStore
             // 
             this.InsertStore.Location = new System.Drawing.Point(37, 70);
@@ -265,32 +308,136 @@
             this.deleteStore.Visible = false;
             this.deleteStore.Click += new System.EventHandler(this.deleteStore_Click);
             // 
-            // Storenumber
+            // datasetinventory
             // 
-            this.Storenumber.Location = new System.Drawing.Point(95, 0);
-            this.Storenumber.Name = "Storenumber";
-            this.Storenumber.Size = new System.Drawing.Size(435, 20);
-            this.Storenumber.TabIndex = 15;
-            this.Storenumber.Visible = false;
-            this.Storenumber.TextChanged += new System.EventHandler(this.Storenumber_TextChanged);
+            this.datasetinventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasetinventory.Location = new System.Drawing.Point(20, 458);
+            this.datasetinventory.Name = "datasetinventory";
+            this.datasetinventory.Size = new System.Drawing.Size(549, 161);
+            this.datasetinventory.TabIndex = 20;
             // 
-            // textBox3
+            // dataGriditems
             // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Location = new System.Drawing.Point(6, 7);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(83, 13);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.Text = "Store Number";
-            this.textBox3.Visible = false;
+            this.dataGriditems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGriditems.Location = new System.Drawing.Point(593, 458);
+            this.dataGriditems.Name = "dataGriditems";
+            this.dataGriditems.Size = new System.Drawing.Size(373, 161);
+            this.dataGriditems.TabIndex = 21;
+            // 
+            // dataGridstorelist
+            // 
+            this.dataGridstorelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridstorelist.Location = new System.Drawing.Point(594, 235);
+            this.dataGridstorelist.Name = "dataGridstorelist";
+            this.dataGridstorelist.Size = new System.Drawing.Size(372, 217);
+            this.dataGridstorelist.TabIndex = 22;
+            // 
+            // datagridsale
+            // 
+            this.datagridsale.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagridsale.Location = new System.Drawing.Point(972, 235);
+            this.datagridsale.Name = "datagridsale";
+            this.datagridsale.Size = new System.Drawing.Size(474, 217);
+            this.datagridsale.TabIndex = 23;
+            // 
+            // datasetpurchase
+            // 
+            this.datasetpurchase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasetpurchase.Location = new System.Drawing.Point(972, 458);
+            this.datasetpurchase.Name = "datasetpurchase";
+            this.datasetpurchase.Size = new System.Drawing.Size(474, 161);
+            this.datasetpurchase.TabIndex = 24;
+            // 
+            // datasetworker
+            // 
+            this.datasetworker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasetworker.Location = new System.Drawing.Point(972, 640);
+            this.datasetworker.Name = "datasetworker";
+            this.datasetworker.Size = new System.Drawing.Size(474, 161);
+            this.datasetworker.TabIndex = 28;
+            // 
+            // datasettype
+            // 
+            this.datasettype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasettype.Location = new System.Drawing.Point(593, 640);
+            this.datasettype.Name = "datasettype";
+            this.datasettype.Size = new System.Drawing.Size(373, 161);
+            this.datasettype.TabIndex = 27;
+            // 
+            // datasetcitylist
+            // 
+            this.datasetcitylist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasetcitylist.Location = new System.Drawing.Point(20, 640);
+            this.datasetcitylist.Name = "datasetcitylist";
+            this.datasetcitylist.Size = new System.Drawing.Size(549, 161);
+            this.datasetcitylist.TabIndex = 26;
+            // 
+            // datasetemployee
+            // 
+            this.datasetemployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datasetemployee.Location = new System.Drawing.Point(972, 22);
+            this.datasetemployee.Name = "datasetemployee";
+            this.datasetemployee.Size = new System.Drawing.Size(355, 204);
+            this.datasetemployee.TabIndex = 29;
+            // 
+            // Inventory
+            // 
+            this.Inventory.Location = new System.Drawing.Point(611, 39);
+            this.Inventory.Name = "Inventory";
+            this.Inventory.Size = new System.Drawing.Size(75, 23);
+            this.Inventory.TabIndex = 30;
+            this.Inventory.Text = "Inventory";
+            this.Inventory.UseVisualStyleBackColor = true;
+            this.Inventory.Click += new System.EventHandler(this.Inventory_Click);
+            // 
+            // purchase
+            // 
+            this.purchase.Location = new System.Drawing.Point(611, 70);
+            this.purchase.Name = "purchase";
+            this.purchase.Size = new System.Drawing.Size(75, 23);
+            this.purchase.TabIndex = 31;
+            this.purchase.Text = "Purchase";
+            this.purchase.UseVisualStyleBackColor = true;
+            this.purchase.Click += new System.EventHandler(this.purchase_Click);
+            // 
+            // Sale
+            // 
+            this.Sale.Location = new System.Drawing.Point(611, 106);
+            this.Sale.Name = "Sale";
+            this.Sale.Size = new System.Drawing.Size(75, 23);
+            this.Sale.TabIndex = 32;
+            this.Sale.Text = "Sale";
+            this.Sale.UseVisualStyleBackColor = true;
+            this.Sale.Click += new System.EventHandler(this.Sale_Click);
+            // 
+            // Workeradd
+            // 
+            this.Workeradd.Location = new System.Drawing.Point(611, 135);
+            this.Workeradd.Name = "Workeradd";
+            this.Workeradd.Size = new System.Drawing.Size(75, 23);
+            this.Workeradd.TabIndex = 33;
+            this.Workeradd.Text = "Worker";
+            this.Workeradd.UseVisualStyleBackColor = true;
+            this.Workeradd.Click += new System.EventHandler(this.Workeradd_Click);
             // 
             // storelistmanage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 464);
+            this.ClientSize = new System.Drawing.Size(1458, 848);
+            this.Controls.Add(this.Workeradd);
+            this.Controls.Add(this.Sale);
+            this.Controls.Add(this.purchase);
+            this.Controls.Add(this.Inventory);
+            this.Controls.Add(this.datasetemployee);
+            this.Controls.Add(this.datasetworker);
+            this.Controls.Add(this.datasettype);
+            this.Controls.Add(this.datasetcitylist);
+            this.Controls.Add(this.datasetpurchase);
+            this.Controls.Add(this.datagridsale);
+            this.Controls.Add(this.dataGridstorelist);
+            this.Controls.Add(this.dataGriditems);
+            this.Controls.Add(this.datasetinventory);
             this.Controls.Add(this.deleteStore);
             this.Controls.Add(this.UpdatePhone);
             this.Controls.Add(this.UpdateStoreName);
@@ -308,6 +455,15 @@
             this.tabControl1.ResumeLayout(false);
             this.storeinsert.ResumeLayout(false);
             this.storeinsert.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetinventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGriditems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridstorelist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagridsale)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetpurchase)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetworker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasettype)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetcitylist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datasetemployee)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,5 +491,18 @@
         private System.Windows.Forms.Button deleteStore;
         private System.Windows.Forms.TextBox Storenumber;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridView datasetinventory;
+        private System.Windows.Forms.DataGridView dataGriditems;
+        private System.Windows.Forms.DataGridView dataGridstorelist;
+        private System.Windows.Forms.DataGridView datagridsale;
+        private System.Windows.Forms.DataGridView datasetpurchase;
+        private System.Windows.Forms.DataGridView datasetworker;
+        private System.Windows.Forms.DataGridView datasettype;
+        private System.Windows.Forms.DataGridView datasetcitylist;
+        private System.Windows.Forms.DataGridView datasetemployee;
+        private System.Windows.Forms.Button Inventory;
+        private System.Windows.Forms.Button purchase;
+        private System.Windows.Forms.Button Sale;
+        private System.Windows.Forms.Button Workeradd;
     }
 }

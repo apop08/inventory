@@ -12,6 +12,8 @@ namespace inventorymanager
         private static int nextstoreid = 0;
         private static int nextstoretype = 0;
         private static int nextinventoryid = 0;
+        private static int nextItem = 0;
+        private static int nextWorker = 0;
         public static int getNextCityId()
         {
             return nextcityid++;
@@ -27,6 +29,14 @@ namespace inventorymanager
         public static int getNextInvId()
         {
             return nextinventoryid++;
+        }
+        public static int getNextItemId()
+        {
+            return nextWorker++;
+        }
+        public static int getNextWorkerId()
+        {
+            return nextItem++;
         }
         public static void InitInvId()
         {
@@ -70,6 +80,26 @@ namespace inventorymanager
                 }
                 else
                     nextstoretype = 0;
+            }
+            var load5 = from g in test.items select g.itemid;
+            if (load5 != null)
+            {
+                if (load5.Any())
+                {
+                    nextItem = load5.Max() + 1;
+                }
+                else
+                    nextItem = 0;
+            }
+            var load6 = from g in test.workers select g.workerid;
+            if (load6 != null)
+            {
+                if (load6.Any())
+                {
+                    nextWorker = load6.Max() + 1;
+                }
+                else
+                    nextWorker = 0;
             }
         }
     }
