@@ -85,7 +85,7 @@ namespace inventorymanager
                 {
                     if (load3.Any())
                     {
-                        nextworker = load2.First();
+                        nextworker = load3.First();
                     }
                     else
                     {
