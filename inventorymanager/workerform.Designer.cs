@@ -37,6 +37,8 @@
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ModifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.WorkerNumb = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Workername
@@ -113,6 +115,7 @@
             this.ModifyButton.TabIndex = 18;
             this.ModifyButton.Text = "Modify";
             this.ModifyButton.UseVisualStyleBackColor = true;
+            this.ModifyButton.Click += new System.EventHandler(this.ModifyButton_Click);
             // 
             // deleteButton
             // 
@@ -122,12 +125,33 @@
             this.deleteButton.TabIndex = 19;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // WorkerNumb
+            // 
+            this.WorkerNumb.Location = new System.Drawing.Point(90, 154);
+            this.WorkerNumb.Name = "WorkerNumb";
+            this.WorkerNumb.Size = new System.Drawing.Size(413, 20);
+            this.WorkerNumb.TabIndex = 21;
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox5.Location = new System.Drawing.Point(-1, 157);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(86, 13);
+            this.textBox5.TabIndex = 20;
+            this.textBox5.Text = "Employee Number:";
             // 
             // workerform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 230);
+            this.Controls.Add(this.WorkerNumb);
+            this.Controls.Add(this.textBox5);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.ButtonAdd);
@@ -155,5 +179,7 @@
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.TextBox WorkerNumb;
+        private System.Windows.Forms.TextBox textBox5;
     }
 }

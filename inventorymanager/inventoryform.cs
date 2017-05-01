@@ -106,11 +106,16 @@ namespace inventorymanager
                 this.Hide();
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show("Error on insert");
             }
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

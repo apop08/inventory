@@ -236,16 +236,17 @@ namespace inventorymanager
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show("Bad Input");
             }
         }
 
         private void UpdateStoreName_Click(object sender, EventArgs e)
         {
-            int numb = int.Parse(Storenumber.Text);
-            var load = from g in test.stores where g.storenumber == numb select g.storeID;
+
             try
             {
+                int numb = int.Parse(Storenumber.Text);
+                var load = from g in test.stores where g.storenumber == numb select g.storeID;
                 if (load != null)
                 {
                     if (load.Any())
@@ -266,19 +267,20 @@ namespace inventorymanager
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show("Bad Input");
             }
         }
 
         private void UpdatePhone_Click(object sender, EventArgs e)
         {
-            int numb = int.Parse(Storenumber.Text);
-            var load = from g in test.stores where g.storenumber == numb select g;
+            
             try
             {
+                int numb = int.Parse(Storenumber.Text);
+                var load = from g in test.stores where g.storenumber == numb select g;
                 if (load != null)
                 {
                     if (load.Any())
@@ -292,14 +294,31 @@ namespace inventorymanager
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show("Bad Input");
             }
 
         }
 
+
+        private void searchParams_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                var load = from g in test.storelists where g.StoreName.Contains(searchParams.Text) select g;
+                if (load != null)
+                {
+                    dataGridSearch.DataSource = load.ToList();
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Bad Search Input");
+            }
+        }
         private void deleteStore_Click(object sender, EventArgs e)
         {
             
@@ -309,16 +328,24 @@ namespace inventorymanager
                 int numb = int.Parse(Storenumber.Text);
                 var load = from g in test.stores where g.storenumber == numb select g;
                 store Store = load.First();
-                
+                var load2 = from g in test.citylists where g.cityid == Store.cityid select g;
+                citylist city = load2.First();
+                test.citylists.Remove(city);
+                var load3 = from g in test.storetypelists where g.storetype == Store.StoreType select g;
+                storetypelist typelist = load3.First();
+                test.storetypelists.Remove(typelist);
+                var load4 = from g in test.storelists where g.storeid == Store.storeID select g;
+                storelist storelist = load4.First();
+                test.storelists.Remove(storelist);
                 test.stores.Remove(Store);
                 test.SaveChanges();
                 LoadToGrid();
                 MessageBox.Show("Record Deleted successfully.");
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show("Error on delete");
             }
         }
 
@@ -389,5 +416,7 @@ namespace inventorymanager
             workerform form = new workerform(this);
             form.Show();
         }
+
+
     }
 }

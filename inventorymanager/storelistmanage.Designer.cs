@@ -63,6 +63,8 @@
             this.purchase = new System.Windows.Forms.Button();
             this.Sale = new System.Windows.Forms.Button();
             this.Workeradd = new System.Windows.Forms.Button();
+            this.searchParams = new System.Windows.Forms.TextBox();
+            this.dataGridSearch = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.datagridstore)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.storeinsert.SuspendLayout();
@@ -75,6 +77,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.datasettype)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetcitylist)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetemployee)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -311,25 +314,25 @@
             // datasetinventory
             // 
             this.datasetinventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datasetinventory.Location = new System.Drawing.Point(20, 458);
+            this.datasetinventory.Location = new System.Drawing.Point(1188, 23);
             this.datasetinventory.Name = "datasetinventory";
-            this.datasetinventory.Size = new System.Drawing.Size(549, 161);
+            this.datasetinventory.Size = new System.Drawing.Size(258, 203);
             this.datasetinventory.TabIndex = 20;
             // 
             // dataGriditems
             // 
             this.dataGriditems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGriditems.Location = new System.Drawing.Point(593, 458);
+            this.dataGriditems.Location = new System.Drawing.Point(972, 640);
             this.dataGriditems.Name = "dataGriditems";
-            this.dataGriditems.Size = new System.Drawing.Size(373, 161);
+            this.dataGriditems.Size = new System.Drawing.Size(474, 161);
             this.dataGriditems.TabIndex = 21;
             // 
             // dataGridstorelist
             // 
             this.dataGridstorelist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridstorelist.Location = new System.Drawing.Point(594, 235);
+            this.dataGridstorelist.Location = new System.Drawing.Point(594, 640);
             this.dataGridstorelist.Name = "dataGridstorelist";
-            this.dataGridstorelist.Size = new System.Drawing.Size(372, 217);
+            this.dataGridstorelist.Size = new System.Drawing.Size(372, 161);
             this.dataGridstorelist.TabIndex = 22;
             // 
             // datagridsale
@@ -351,23 +354,23 @@
             // datasetworker
             // 
             this.datasetworker.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datasetworker.Location = new System.Drawing.Point(972, 640);
+            this.datasetworker.Location = new System.Drawing.Point(594, 235);
             this.datasetworker.Name = "datasetworker";
-            this.datasetworker.Size = new System.Drawing.Size(474, 161);
+            this.datasetworker.Size = new System.Drawing.Size(372, 217);
             this.datasetworker.TabIndex = 28;
             // 
             // datasettype
             // 
             this.datasettype.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datasettype.Location = new System.Drawing.Point(593, 640);
+            this.datasettype.Location = new System.Drawing.Point(20, 640);
             this.datasettype.Name = "datasettype";
-            this.datasettype.Size = new System.Drawing.Size(373, 161);
+            this.datasettype.Size = new System.Drawing.Size(549, 161);
             this.datasettype.TabIndex = 27;
             // 
             // datasetcitylist
             // 
             this.datasetcitylist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datasetcitylist.Location = new System.Drawing.Point(20, 640);
+            this.datasetcitylist.Location = new System.Drawing.Point(20, 458);
             this.datasetcitylist.Name = "datasetcitylist";
             this.datasetcitylist.Size = new System.Drawing.Size(549, 161);
             this.datasetcitylist.TabIndex = 26;
@@ -375,9 +378,9 @@
             // datasetemployee
             // 
             this.datasetemployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datasetemployee.Location = new System.Drawing.Point(972, 22);
+            this.datasetemployee.Location = new System.Drawing.Point(594, 458);
             this.datasetemployee.Name = "datasetemployee";
-            this.datasetemployee.Size = new System.Drawing.Size(355, 204);
+            this.datasetemployee.Size = new System.Drawing.Size(372, 161);
             this.datasetemployee.TabIndex = 29;
             // 
             // Inventory
@@ -420,11 +423,29 @@
             this.Workeradd.UseVisualStyleBackColor = true;
             this.Workeradd.Click += new System.EventHandler(this.Workeradd_Click);
             // 
+            // searchParams
+            // 
+            this.searchParams.Location = new System.Drawing.Point(711, 39);
+            this.searchParams.Name = "searchParams";
+            this.searchParams.Size = new System.Drawing.Size(369, 20);
+            this.searchParams.TabIndex = 35;
+            this.searchParams.TextChanged += new System.EventHandler(this.searchParams_TextChanged);
+            // 
+            // dataGridSearch
+            // 
+            this.dataGridSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridSearch.Location = new System.Drawing.Point(711, 65);
+            this.dataGridSearch.Name = "dataGridSearch";
+            this.dataGridSearch.Size = new System.Drawing.Size(450, 150);
+            this.dataGridSearch.TabIndex = 36;
+            // 
             // storelistmanage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1458, 848);
+            this.Controls.Add(this.dataGridSearch);
+            this.Controls.Add(this.searchParams);
             this.Controls.Add(this.Workeradd);
             this.Controls.Add(this.Sale);
             this.Controls.Add(this.purchase);
@@ -464,7 +485,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.datasettype)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetcitylist)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.datasetemployee)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridSearch)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -504,5 +527,7 @@
         private System.Windows.Forms.Button purchase;
         private System.Windows.Forms.Button Sale;
         private System.Windows.Forms.Button Workeradd;
+        private System.Windows.Forms.TextBox searchParams;
+        private System.Windows.Forms.DataGridView dataGridSearch;
     }
 }

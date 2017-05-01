@@ -41,6 +41,8 @@
             this.ButtonAdd = new System.Windows.Forms.Button();
             this.ModifyButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.WorkerNumb = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ItemName
@@ -163,11 +165,31 @@
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = true;
             // 
+            // WorkerNumb
+            // 
+            this.WorkerNumb.Location = new System.Drawing.Point(90, 166);
+            this.WorkerNumb.Name = "WorkerNumb";
+            this.WorkerNumb.Size = new System.Drawing.Size(413, 20);
+            this.WorkerNumb.TabIndex = 23;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(-1, 169);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(86, 13);
+            this.textBox1.TabIndex = 22;
+            this.textBox1.Text = "Purchase Number:";
+            // 
             // purchaseform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(504, 230);
+            this.Controls.Add(this.WorkerNumb);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.ModifyButton);
             this.Controls.Add(this.ButtonAdd);
@@ -203,5 +225,7 @@
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.Button ModifyButton;
         private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.TextBox WorkerNumb;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
